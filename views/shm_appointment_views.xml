@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="shm_appointment_view_tree" model="ir.ui.view">
+            <field name="name">Appointment</field>
+            <field name="model">shm.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="patient_id" />
+                    <field name="gender" />
+                    <field name="ref" />
+                    <field name="appointment_time"/>
+                    <field name="booking_date" />
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <record id="shm_appointment_view_form" model="ir.ui.view">
+            <field name="name">Appointment</field>
+            <field name="model">shm.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment">
+                    <header>
+                        <button name="action_in_consultation" type="object" class="oe_stat_button">
+                            <field name="field_name" string="" widget="statinfo"/>
+                        </button>
+                         <field name="state" widget="statusbar" statusbar_visible="draft,in_consultation,done" 
+                         options="{'clickable': '1'}"
+                         />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h3><field name="priority" widget="priority" /></h3>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id" />
+                                <field name="appointment_time"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="gender" />
+                                <field name="ref" readonly='1'/>
+                                <field name="booking_date" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="pharmacy" string="Pharmacy">
+                                <group><field name="booking_date" /></group>
+                            </page>
+                            <page name="pharmacy" string="Pharmacy">
+                                <group><field name="booking_date" /></group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="shm_appointment_view_search" model="ir.ui.view">
+            <field name="name">Appointment</field>
+            <field name="model">shm.appointment</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="gender" filter_domain="['|', ('gender','ilike',self), ]"
+                    string="Gender"
+                    />
+                    <filter name="female_gender" string="Female" domain="[('gender', '=', 'female')]" context="{'group_by': 'gender'}" />
+                    <filter name="male_gender" string="Male" domain="[('gender', '=', 'male')]" context="{'group_by': 'gender'}" />
+                </search>
+            </field>
+        </record>
+        <record id="shm_appoinment_view_action" model="ir.actions.act_window">
+            <field name="name">Appointment</field>
+            <field name="res_model">shm.appointment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+</odoo>

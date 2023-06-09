@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shm_patient,shm_patient,model_shm_patient,base.group_user,1,1,1,1
+access_shm_appointment,shm_appointment,model_shm_appointment,base.group_user,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="hospital_menu"
+        name="SHM Hospital"/>
+        <menuitem
+            id="patient_sub_menu"
+            name="Patient"
+            action="shm_patient_view_action"
+            parent="hospital_menu"/>
+        <menuitem
+            id="appointment_menu"
+            name="Appointment"
+            action="shm_appoinment_view_action"
+            parent="hospital_menu"
+            />
+</odoo>

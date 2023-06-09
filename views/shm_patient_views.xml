@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+        <record id="shm_patient_view_tree" model="ir.ui.view">
+            <field name="name">Patient List</field>
+            <field name="model">shm.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patient List">
+                    <field name="name"/>
+                    <field name="ref"/>
+                    <field name="gender"/>
+                    <field name="date_of_birth"/>
+                    <field name="phone"/>
+                    <field name="emergency_contact"/>
+                    <field name="blood_group"/>
+                    <field name="history"/>
+                    <field name="active"/>
+                    <field name="age" />
+                    <field name="appointment_id" />
+
+                </tree>
+            </field>
+        </record>
+        <record id="shm_patient_view_form" model="ir.ui.view">
+            <field name="name">Patient</field>
+            <field name="model">shm.patient</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group name="name" string="string">
+                                <field name="name"/>
+                                <field name="ref"/>
+                                <field name="gender"/>
+                                <field name="date_of_birth"/>
+                                <field name="phone"/>
+                                
+                            </group>
+                            <group name="name" string="string">
+                                <field name="emergency_contact"/>
+                                <field name="blood_group"/>
+                                <field name="history"/>
+                                <field name="active"/>
+                                <field name="age" />
+                                <field name="appointment_id" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="shm_patient_view_action" model="ir.actions.act_window">
+            <field name="name">Patient Details</field>
+            <field name="res_model">shm.patient</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
